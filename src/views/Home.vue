@@ -71,7 +71,7 @@
         </div>
       </div>
     </div>
-
+    <Biglo></Biglo>
     <div class="style_style">
       
     </div>
@@ -79,7 +79,9 @@
 </template>
 
 <script>
+import biglo from '../components/Biglo.vue';
 export default {
+  components: { biglo },
   name: "Home",
   data() {
     return {
