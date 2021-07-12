@@ -64,24 +64,24 @@
                 animationDuration: `${
                   0.6 + n * 0.3 + parseInt(item.width) * 0.002
                 }s`, // 波纹动画时间渐增，表现波纹向外扩散渐慢的效果,波纹尺寸越大动画时间越长。
-                backgroundColor: wavesConfig.waveColor,
+                backgroundColor: waveColor,
               }"
             ></div>
           </div>
         </div>
       </div>
     </div>
-    <Biglo></Biglo>
-    <div class="style_style">
-      
-    </div>
+    <!-- 爱心子组件 -->
+    <!-- <biglo></biglo> -->
+
+    <div class="style_style"></div>
   </div>
 </template>
 
 <script>
-import biglo from '../components/Biglo.vue';
+// import biglo from '../components/Biglo.vue';
 export default {
-  components: { biglo },
+  // components: { biglo },
   name: "Home",
   data() {
     return {
@@ -89,11 +89,12 @@ export default {
       activeIndex2: "1",
       nowTime: "",
       waves: [],
+      waveColor: "rgb(243, 9, 231)",
       wavesConfig: {
         maxSize: 300, // px，波纹最大尺寸
         minSize: 100, // px，波纹最小尺寸
         zIndexCount: 999, // 波纹父元素其z-index数值
-        waveColor: "#3E8CE3", //波纹基础颜色
+        //波纹基础颜色
         total: 5, //波纹圈层数
       },
       clear: {
@@ -136,6 +137,16 @@ export default {
     heihei() {
       alert("逍遥之火");
     },
+    //随机颜色
+    rgb() {
+      //rgb颜色随机
+      var r = Math.floor(Math.random() * 256);
+      var g = Math.floor(Math.random() * 256);
+      var b = Math.floor(Math.random() * 256);
+      var rgb = "(" + r + "," + g + "," + b + ")";
+      this.waveColor = rgb;
+      return rgb;
+    },
     //获取系统时间
     getdate_show() {
       var date = new Date();
@@ -156,9 +167,10 @@ export default {
     nowTimes() {
       this.getdate_show();
       setInterval(this.nowTimes, 1000);
-      this.clear();
+      this.clear1();
     },
-    clear() {
+    //清除日期定时器
+    clear1() {
       clearInterval(this.nowTimes);
       this.nowTimes = null;
     },
@@ -202,8 +214,8 @@ export default {
   position: relative;
   height: 100%;
 }
-.style_style{
-  background-image: linear-gradient(#7ad351, #757ddd);
+.style_style {
+  background-image: linear-gradient(#bcc7b8, #b5b9db);
   height: 200px;
 }
 .jump_style {
@@ -248,7 +260,6 @@ export default {
       height: 100%;
       position: absolute;
       border-radius: 100%;
-
       animation-name: wave;
       animation-fill-mode: forwards; // 动画结束后保持最后一帧的状态
       animation-timing-function: ease-out; // 波纹向外扩散渐缓
