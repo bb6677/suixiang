@@ -5,14 +5,14 @@
         @click="jump"
         style="
           font-size: 22px;
-          color: cadetblue;
+          color: black;
           margin-left: 10px;
           cursor: pointer;
         "
       >
         hello-7月</span
       >
-      <p>{{ this.nowTime }}</p>
+      <p class="time_style">@{{ this.nowTime }}</p>
       <div class="nav_work">
         <p @click="haha" style="cursor: pointer">琉璃之金</p>
         <el-dropdown trigger="click">
@@ -41,7 +41,7 @@
         <p @click="yoyo" style="cursor: pointer">璀璨之沙</p>
         <p @click="wowo" style="cursor: pointer">寒峭之雪</p>
       </div>
-      <div class="jump_style">关于</div>
+      <div class="jump_style">Copyright © 2021-2021 hello-7  8081 All Rights Reserved. 备案号：jugelizi</div>
     </div>
 
     <div data-tname="WaveItem">
@@ -74,7 +74,12 @@
     <!-- 爱心子组件 -->
     <!-- <biglo></biglo> -->
 
-    <div class="style_style"></div>
+    <div class="style_style">
+        <div class="sphere1"></div>
+        <div class="sphere2"></div>
+        <div class="sphere3"></div>
+        <div class="sphere4"></div>
+    </div>
   </div>
 </template>
 
@@ -147,6 +152,9 @@ export default {
       this.waveColor = rgb;
       return rgb;
     },
+    move(e){
+      var obj =document.getElementsByClassName('sphere4')
+    },
     //获取系统时间
     getdate_show() {
       var date = new Date();
@@ -217,9 +225,14 @@ export default {
 .style_style {
   background-image: linear-gradient(#bcc7b8, #b5b9db);
   height: 200px;
+  display: flex;
+  align-items: center;
+}
+.time_style{
+  cursor: pointer;
 }
 .jump_style {
-  background-color: rgb(224, 203, 105);
+  // background-color: rgb(224, 203, 105);
   position: fixed;
   right: 10px;
   bottom: 0;
@@ -227,11 +240,11 @@ export default {
   color: rgb(243, 9, 231);
   font-size: 14px;
   cursor: pointer;
+  text-align: center;
 }
 .nav {
   height: 50px;
-  background-color: rgb(163, 207, 118);
-  opacity: 0.5;
+  background-color: rgba(163, 207, 118,.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -242,8 +255,43 @@ export default {
   justify-content: space-around;
   align-items: center;
   font-size: 18px;
-  color: rgb(243, 9, 231);
+  color: black;
+  font-weight:600;
 }
+//球体
+.sphere1{
+  width: 120px;
+  height: 120px;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+  box-shadow: 20px 20px 20px #888888;
+  margin-left: 5px;
+}
+.sphere2{
+  width: 100px;
+  height: 100px;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+  box-shadow: 20px 20px 20px #888888;
+  margin-left: 5px;
+}
+.sphere3{
+  width: 80px;
+  height: 80px;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+  box-shadow: 20px 20px 20px #888888;
+  margin-left: 5px;
+}
+.sphere4{
+  width: 50px;
+  height: 50px;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+  box-shadow: 20px 20px 20px #888888;
+  margin-left: 5px;
+}
+
 .waves {
   .wave {
     position: fixed;
